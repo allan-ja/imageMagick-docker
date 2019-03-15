@@ -17,3 +17,10 @@ RUN wget https://imagemagick.org/download/linux/CentOS/x86_64/ImageMagick-libs-7
 	&& rpm -Uvh ImageMagick-7.0.8-33.x86_64.rpm \
 	&& rm -f *rpm
 
+# Install Python 3
+RUN yum -y install https://centos7.iuscommunity.org/ius-release.rpm &&\
+	yum -y install python36u &&\
+	yum -y install python36u-pip &&\
+	ln -s /usr/bin/python3.6 /usr/bin/python3 &&\
+	ln -s /usr/bin/pip3.6 /usr/bin/pip3 &&\
+	pip3 install --upgrade pip
